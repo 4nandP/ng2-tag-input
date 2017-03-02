@@ -84,6 +84,11 @@ export class TagInputDropdown {
     @Input() public identifyBy = 'value';
 
     /**
+     * @name classBy
+     */
+    @Input() public classBy = 'className';
+
+    /**
      * @description a function a developer can use to implement custom matching for the autocomplete
      * @name matchingFn
      */
@@ -215,7 +220,8 @@ export class TagInputDropdown {
 
         // add item
         if (this.tagInput.isTagValid(item.value, true)) {
-            const tag = this.tagInput.createTag(item.value[this.displayBy], item.value[this.identifyBy]);
+            const tag = this.tagInput.createTag(item.value[this.displayBy], item.value[this.identifyBy],
+                item.value[this.classBy]);
             this.tagInput.appendNewTag(tag);
         }
 

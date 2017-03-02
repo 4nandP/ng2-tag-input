@@ -1,5 +1,24 @@
-<main>
-    <div class="home-container">
+<main extend>
+        <div>
+            <h3>Custom classes</h3>
+            <tag-input [ngModel]="itemsAsObjectsWithClass"
+                       [classBy]="'class'"
+                       [displayBy]="'name'"
+                       [identifyBy]="'id'"
+                       [onlyFromAutocomplete]="true">
+                <tag-input-dropdown
+                                    [classBy]="'class'"
+                                    [displayBy]="'name'"
+                                    [identifyBy]="'id'"
+                                    [autocompleteItems]="itemsAsObjectsWithClass">
+                    <template let-item="item" let-index="index">
+                        {{ item.name }}
+                    </template>
+                </tag-input-dropdown>
+            </tag-input>
+        </div>
+
+
         <div>
             <h3>Simple Input with two items</h3>
             <tag-input [(ngModel)]="items" [modelAsStrings]="true"></tag-input>
@@ -194,5 +213,4 @@
                 <tag [model]="'Tag 3'" [readonly]="true" class='tag'></tag>
             </div>
         </div>
-    </div>
 </main>

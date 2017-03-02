@@ -9,6 +9,7 @@
     <!-- TAGS -->
     <div class="ng2-tags-container">
         <tag *ngFor="let item of items; let i = index"
+             [ngClass]="setItemClass(item)"
              [@flyInOut]="'in'"
              (onSelect)="selectItem(item)"
              (onRemove)="removeItem(item, i)"

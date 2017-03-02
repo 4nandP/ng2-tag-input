@@ -23,6 +23,15 @@ export class Home {
         'item3'
     ];
 
+    itemsAsObjectsWithClass = [
+        {id: 0, name: 'Angular', class: 'red-tag'},
+        {id: 1, name: 'React', class: 'yellow-tag'},
+        {id: 2, name: 'Vue', class: 'green-tag'},
+        {id: 3, name: 'Elm', class: 'blue-tag'},
+        {id: 4, name: 'Ember', class: 'dark-blue-tag'},
+        {id: 5, name: 'Backbone', class: 'purple-tag'},
+    ];
+
     public requestAutocompleteItems = (text: string): Observable<Response> => {
         const url = `https://api.github.com/search/repositories?q=${text}`;
         return this.http

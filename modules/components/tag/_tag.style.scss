@@ -36,6 +36,33 @@ tag.readonly:focus {
     outline: 0;
 }
 
+@each $current-color in $colors {
+    $i: index($colors, $current-color);
+
+    tag.#{$current-color}-tag {
+        background-color: nth($background-colors-list, $i);
+        color: nth($text-colors-list, $i);
+    }
+
+    .default tag.#{$current-color}-tag:not(.tag--editing) {
+        background-color: nth($background-colors-list, $i);
+    }
+
+    .default tag.#{$current-color}-tag:not(.readonly):not(.tag--editing):focus {
+        background-color: nth($focused-background-colors-list, $i);
+        color: nth($text-colors-list, $i);
+    }
+
+    .default tag.#{$current-color}-tag:not(.readonly):not(.tag--editing):active {
+        background: darken(nth($focused-background-colors-list, $i), 5%);
+        color: nth($text-colors-list, $i);
+    }
+
+    .default tag.#{$current-color}-tag:not(:focus):not(.tag--editing):not(:active):not(.readonly):hover {
+        background: darken(nth($focused-background-colors-list, $i), 5%);
+    }
+}
+
 .default tag.tag--editing,
 .dark tag.tag--editing,
 .minimal tag.tag--editing {

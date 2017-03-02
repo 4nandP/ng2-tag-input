@@ -432,12 +432,14 @@ export class TagInputComponent extends TagInputAccessor implements OnInit {
      * @name createTag
      * @param display
      * @param value
+     * @param className
      * @returns {{}}
      */
-    public createTag(display: string, value: any): TagModel {
+    public createTag(display: string, value: any, className?: string): TagModel {
         return {
             [this.displayBy]: display,
-            [this.identifyBy]: value
+            [this.identifyBy]: value,
+            [this.classBy]: className
         };
     }
 
@@ -624,6 +626,10 @@ export class TagInputComponent extends TagInputAccessor implements OnInit {
      */
     private trackBy(item: TagModel): string {
         return item[this.identifyBy];
+    }
+
+    private setItemClass(item: TagModel): string {
+        return item[this.classBy];
     }
 
     /**

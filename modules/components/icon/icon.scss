@@ -44,3 +44,10 @@
 :host-context(.minimal tag:active) path{
     fill: $color-arrow-minimal-focused;
 }
+
+@each $current-color in $colors {
+    $i: index($colors, $current-color);
+    :host-context(.default tag.#{$current-color}-tag) path{
+        fill: nth($text-colors-list, $i);
+    }
+}
