@@ -3,5 +3,5 @@ export {
     TagInputComponent,
     TagInputForm,
     TagInputDropdown
-} from './dist/modules/ng2-tag-input.module';
+} from './modules/ng2-tag-input.module';
 
